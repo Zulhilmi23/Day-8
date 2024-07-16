@@ -1,27 +1,37 @@
-// IMPORTANT: Assigment of element to variables must be done initially
+// IMPORTANT: Assignment of elements to variables must be done initially
 
 const text = document.querySelector("#text");
 const nameInput = document.querySelector("#nameInput");
 const submitName = document.querySelector("#submitName");
 
-// event in JS
-// onsubmit, onclick, onmouseover, onmouseout, onkeydown, onkeyup, on keypress
+// 1. get the value of the input using event listener
+// event in javascript
+// onsubmit, onclick, onmouseover, onmouseout, onkeydown, onkeyup, onkeypress
 // when user fill the input -> oninput, onchange
+// addEventListener("event", function)
+// accept 2 arguments: event name, callback function
 nameInput.addEventListener("input", function (e) {
   console.log(e.target.value);
 });
 
-//------------------------------------------------------------------//
+// 2. add event listener to the button
+submitName.addEventListener("click", function () {
+  console.log("Button clicked");
+  const name = nameInput.value;
+  text.innerText = "Hello " + name;
+});
+
+/*****************************************/
 
 // intro to function
 
 // 1. function declaration
-function greet(name) {
+function greet() {
   // function scope
   console.log("Hello World");
 }
 
-// 2. function invocation/call
+// 2. function invocation / call
 greet();
 greet();
 greet();
@@ -34,8 +44,9 @@ function greetWithName(name) {
 }
 
 // 4. function invocation with argument
-greetWithName("Ahmad");
-greetWithName("Abu");
+greetWithName("John");
+greetWithName("Doe");
+greetWithName("Jane");
 
 // 5. function declaration with multiple parameters
 function greetWithNameAndAge(name, age) {
@@ -44,13 +55,16 @@ function greetWithNameAndAge(name, age) {
 
 // 6. function invocation with multiple arguments
 greetWithNameAndAge("John", 25);
-greetWithNameAndAge("Abu", 33);
+const test = greetWithNameAndAge("Doe", 30);
+// test is undefined because the function does not return anything
+console.log(test);
 
 // 7. function declaration with return value
+// return value is the output of the function which can be stored in a variable
 function add(a, b) {
   return a + b;
 }
 
-// 8. function invocation with rturn value
+// 8. function invocation with return value
 const result = add(10, 20);
 console.log(result);
